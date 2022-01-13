@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:redshift="http://www.mulesoft.org/schema/mule/redshift" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/redshift http://www.mulesoft.org/schema/mule/redshift/current/mule-redshift.xsd">
+	<flow name="redshift-connector-mulesoft-exampleFlow" doc:id="0f36cc30-9a2d-489c-b1d2-6fd326c837a2" >
+		<http:listener doc:name="Listener" doc:id="64c6d6e2-2259-4915-9b41-4077b78f5430" />
+		<redshift:bulk-insert doc:name="Bulk insert" doc:id="b4d63216-2cdd-42bd-8317-7ed39ee8d5a3" />
+		<redshift:stored-procedure doc:name="Stored procedure" doc:id="42433ca0-146b-4720-8060-a4c98e98631f" />
+	</flow>
+	<flow name="redshift-connector-mulesoft-exampleFlow1" doc:id="850d9178-e28d-4b83-9cd2-fdea0ad0b400" >
+		<redshift:listener doc:name="On Table Row" doc:id="18356932-3a06-486f-a2da-8df3694928c0" >
+			<scheduling-strategy >
+				<fixed-frequency />
+			</scheduling-strategy>
+		</redshift:listener>
+		<redshift:execute-script doc:name="Execute script" doc:id="1d75c121-4cc5-475a-9dad-1aa6454c20b3" />
+	</flow>
+</mule>
